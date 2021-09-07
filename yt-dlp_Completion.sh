@@ -1,11 +1,13 @@
 #!/bin/bash
 
+# yt-dlp Bash Completion
+
 function _yt_dlp_completions()
 {
 	local cur
 	_get_comp_words_by_ref cur
 
-	COMPREPLY=(`compgen -W \\ 
+	COMPREPLY=(`compgen -W \\
 		'-2
 		-4
 		-6
@@ -69,7 +71,7 @@ function _yt_dlp_completions()
 		--datebefore
 		--default-search
 		--download-archive
-		--downloader [PROTO:]NAME
+		--downloader
 		--downloader-args
 		--dump-json
 		--dump-pages
@@ -183,12 +185,12 @@ function _yt_dlp_completions()
 		--no-write-playlist-metafiles
 		--no-write-subs
 		--no-write-thumbnail
-		--output [TYPES:]TEMPLATE
+		--output
 		--output-na-placeholder
 		--parse-metadata
 		--part
 		--password
-		--paths [TYPES:]PATH
+		--paths
 		--playlist-end
 		--playlist-items
 		--playlist-random
@@ -255,7 +257,6 @@ function _yt_dlp_completions()
 		--xattr-set-filesize
 		--xattrs
 		--yes-playlist' -- "${cur}"`)
-
 }
 
 complete -F _yt_dlp_completions yt-dlp
